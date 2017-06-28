@@ -13,14 +13,14 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.10.2",
-    "body-parser": "^1.13.3",
-    "bootstrap": "3.3.5",
-    "express": "^4.13.3",
-    "jquery": "^3.0.0",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.5",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
     "nunjucks": "^2.5.2",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.23.0",
+    "sequelize": "^3.30.4",
     "volleyball": "^1.4.1"
   },
   "devDependencies": {
