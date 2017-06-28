@@ -8,18 +8,21 @@
  */
 
 var attractionsModule = (function () {
-
+  var enhanced;
   // application state
-
-  var enhanced = {
-    hotels: hotels.map(attractionModule.create),
-    restaurants: restaurants.map(attractionModule.create),
-    activities: activities.map(attractionModule.create),
-  };
+  Promise.all([hotelProm, restaurantProm, activitiesProm])
+    .then(function (results) {
+      console.log('res', results);
+      enhanced = {
+        hotels: results[0].map(attractionModule.create),
+        restaurants: results[1].map(attractionModule.create),
+        activities: results[2].map(attractionModule.create),
+      };
+    })
 
   // private helper methods (only available inside the module)
 
-  function findById (array, id) {
+  function findById(array, id) {
     return array.find(function (el) {
       return +el.id === +id;
     });

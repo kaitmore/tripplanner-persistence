@@ -16,11 +16,13 @@ $(function(){
   var $hotelSelect = $optionsPanel.find('#hotel-choices');
   var $restaurantSelect = $optionsPanel.find('#restaurant-choices');
   var $activitySelect = $optionsPanel.find('#activity-choices');
-
+  Promise.all([hotelProm, restaurantProm, activitiesProm])
+    .then(function (results) {
   // make all the option tags (second arg of `forEach` is a `this` binding)
-  hotels.forEach(makeOption, $hotelSelect);
-  restaurants.forEach(makeOption, $restaurantSelect);
-  activities.forEach(makeOption, $activitySelect);
+  results[0].forEach(makeOption, $hotelSelect);
+   results[1].forEach(makeOption, $restaurantSelect);
+   results[2].forEach(makeOption, $activitySelect);
+    });
 
   function makeOption (databaseAttraction) {
     var $option = $('<option></option>') // makes a new option tag
